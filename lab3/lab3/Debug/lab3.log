@@ -1,4 +1,4 @@
 ﻿  lab3.cpp
-D:\СГУ\Прикладная универсальная алгебра\Лабораторная №3\lab3\lab3\lab3.cpp(404,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-D:\СГУ\Прикладная универсальная алгебра\Лабораторная №3\lab3\lab3\lab3.cpp(10): warning C4715: search_num: значение возвращается не при всех путях выполнения
-  lab3.vcxproj -> D:\СГУ\Прикладная универсальная алгебра\Лабораторная №3\lab3\Debug\lab3.exe
+C:\Users\User\Downloads\relational-algebra-main\relational-algebra-main\lab3\lab3\lab3.cpp(404,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\User\Downloads\relational-algebra-main\relational-algebra-main\lab3\lab3\lab3.cpp(10): warning C4715: search_num: значение возвращается не при всех путях выполнения
+  lab3.vcxproj -> C:\Users\User\Downloads\relational-algebra-main\relational-algebra-main\lab3\Debug\lab3.exe

@@ -105,17 +105,17 @@ void zad1() {
 	distributivity(peres, uni, n, x);
 }
 
-void uni_bin(int** a, int** a2, int n) {
+void uni_bin(int** a, int** a2, int n, int m) {
 	int** res;
 	res = new int* [n];
 	for (int i = 0; i < n; i++) {
-		res[i] = new int[n];
-		for (int j = 0; j < n; j++) {
+		res[i] = new int[m];
+		for (int j = 0; j < m; j++) {
 			res[i][j] = a[i][j];
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			if (res[i][j] == 1 || a2[i][j] == 1)
 				res[i][j] = 1;
 				cout << res[i][j] << ' ';
@@ -125,17 +125,17 @@ void uni_bin(int** a, int** a2, int n) {
 	//delete a, a2, res;
 }
 
-void pere_bin(int** a, int** a2, int n) {
+void pere_bin(int** a, int** a2, int n, int m) {
 	int** res;
 	res = new int* [n];
 	for (int i = 0; i < n; i++) {
-		res[i] = new int[n];
-		for (int j = 0; j < n; j++) {
+		res[i] = new int[m];
+		for (int j = 0; j < m; j++) {
 			res[i][j] = a[i][j];
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			if (res[i][j] == 1 && a2[i][j] == 1)
 				res[i][j] = 1;
 			else res[i][j] = 0;
@@ -147,17 +147,17 @@ void pere_bin(int** a, int** a2, int n) {
 	//delete a, a2, res;
 }
 
-void multi_bin(int** a, int** a2, int n) {
+void multi_bin(int** a, int** a2, int n, int m) {
 	int** res;
 	res = new int* [n];
 	for (int i = 0; i < n; i++) {
-		res[i] = new int[n];
-		for (int j = 0; j < n; j++) {
+		res[i] = new int[m];
+		for (int j = 0; j < m; j++) {
 			res[i][j] = a[i][j];
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			if (res[i][j] == 1 && a2[i][j] == 1)
 				res[i][j] = 1;
 			else res[i][j] = 0;
@@ -169,17 +169,17 @@ void multi_bin(int** a, int** a2, int n) {
 	//delete a, a2, res;
 }
 
-void add_bin(int** a, int n) {
+void add_bin(int** a, int n, int m) {
 	int** res;
 	res = new int* [n];
 	for (int i = 0; i < n; i++) {
-		res[i] = new int[n];
-		for (int j = 0; j < n; j++) {
+		res[i] = new int[m];
+		for (int j = 0; j < m; j++) {
 			res[i][j] = a[i][j];
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			if (res[i][j] == 1)
 				res[i][j] = 0;
 			else res[i][j] = 1;
@@ -188,7 +188,7 @@ void add_bin(int** a, int n) {
 	}
 
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
+		for (int j = 0; j < m; j++) {
 			cout << res[i][j] << ' ';
 		}
 		cout << endl;
@@ -197,10 +197,10 @@ void add_bin(int** a, int n) {
 }
 
 
-void reverse_bin(int** a, int n) {
+void reverse_bin(int** a, int n, int m) {
 	int** res;
-	res = new int* [n];
-	for (int i = 0; i < n; i++) {
+	res = new int* [m];
+	for (int i = 0; i < m; i++) {
 		res[i] = new int[n];
 		for (int j = 0; j < n; j++) {
 			res[i][j] = a[j][i];
@@ -217,16 +217,16 @@ void bin_relation() {
 	cout << "1 - объединение \n2 - пересечение \n3 - произведене \n4 - дополнение \n5 - нахождение обратного" << endl;
 	cin >> x;
 	if (x == 1 || x == 2 || x == 3) {
-		int n;
-		cout << "n = ";
-		cin >> n;
+		int n, m;
+		cout << " Введите количество строк и столбцов:\n ";
+		cin >> n >> m;
 
 		int** a;
 		a = new int* [n];
 		cout << "Введите первую матрицу бинарного отношения:" << endl;
 		for (int i = 0; i < n; i++) {
-			a[i] = new int[n];
-			for (int j = 0; j < n; j++) {
+			a[i] = new int[m];
+			for (int j = 0; j < m; j++) {
 				cin >> a[i][j];
 			}
 		}
@@ -235,41 +235,41 @@ void bin_relation() {
 		a2 = new int* [n];
 		cout << "Введите вторую матрицу бинарного отношения:" << endl;
 		for (int i = 0; i < n; i++) {
-			a2[i] = new int[n];
-			for (int j = 0; j < n; j++) {
+			a2[i] = new int[m];
+			for (int j = 0; j < m; j++) {
 				cin >> a2[i][j];
 			}
 		}
 		cout << endl;
 
 		if (x == 1)
-			uni_bin(a, a2, n);
+			uni_bin(a, a2, n, m);
 		if (x == 2)
-			pere_bin(a, a2, n);
+			pere_bin(a, a2, n, m);
 		if (x == 3)
-			multi_bin(a, a2, n);
+			multi_bin(a, a2, n, m);
 	}
 
 	else {
-		int n;
-		cout << "n = ";
-		cin >> n;
+		int n, m;
+		cout << "Введите количестно строк и столбцов \n";
+		cin >> n >> m;
 
 		int** a;
 		a = new int* [n];
-		cout << "Введите матрицу бинарного отношения:" << endl;
+		cout << "Введите первую матрицу бинарного отношения:" << endl;
 		for (int i = 0; i < n; i++) {
-			a[i] = new int[n];
-			for (int j = 0; j < n; j++) {
+			a[i] = new int[m];
+			for (int j = 0; j < m; j++) {
 				cin >> a[i][j];
 			}
 		}
 		cout << endl;
 
 		if (x == 4)
-			add_bin(a, n);
+			add_bin(a, n, m);
 		if (x == 5)
-			reverse_bin(a, n);
+			reverse_bin(a, n, m);
 	}
 	cout << endl;
 }
