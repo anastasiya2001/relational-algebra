@@ -147,7 +147,7 @@ void pere_bin(int** a, int** a2, int n, int m) {
 	//delete a, a2, res;
 }
 
-void multi_bin(int** a, int** a2, int n, int m) {
+void multi_bin(int** a, int** a2, int n, int m, int n2, int m2) {
 	int** res;
 	res = new int* [n];
 	for (int i = 0; i < n; i++) {
@@ -157,14 +157,19 @@ void multi_bin(int** a, int** a2, int n, int m) {
 		}
 	}
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
-			if (res[i][j] == 1 && a2[i][j] == 1)
+		for (int j = 0; j < m2; j++) {
+			int count = 0;
+			for (int k = 0; k < n2; k++) {
+				count += a[i][k] * a2[k][j];
+			}
+			if (count > 0)
 				res[i][j] = 1;
 			else res[i][j] = 0;
 			cout << res[i][j] << ' ';
 		}
 		cout << endl;
 	}
+
 
 	//delete a, a2, res;
 }
@@ -216,7 +221,7 @@ void bin_relation() {
 	int x = 0;
 	cout << "1 - объединение \n2 - пересечение \n3 - произведене \n4 - дополнение \n5 - нахождение обратного" << endl;
 	cin >> x;
-	if (x == 1 || x == 2 || x == 3) {
+	if (x == 1 || x == 2) {
 		int n, m;
 		cout << " Введите количество строк и столбцов:\n ";
 		cin >> n >> m;
@@ -246,10 +251,39 @@ void bin_relation() {
 			uni_bin(a, a2, n, m);
 		if (x == 2)
 			pere_bin(a, a2, n, m);
-		if (x == 3)
-			multi_bin(a, a2, n, m);
 	}
+	else if (x == 3) {
+		int n, m, n2, m2;
+		cout << " Введите количество строк и столбцов первой матрицы:\n ";
+		cin >> n >> m;
+		cout << " Введите количество строк и столбцов второй матрицы:\n ";
+		cin >> n2 >> m2;
 
+		int** a;
+		a = new int* [n];
+		cout << "Введите первую матрицу бинарного отношения:" << endl;
+		for (int i = 0; i < n; i++) {
+			a[i] = new int[m];
+			for (int j = 0; j < m; j++) {
+				cin >> a[i][j];
+			}
+		}
+
+		int** a2;
+		a2 = new int* [n2];
+		cout << "Введите вторую матрицу бинарного отношения:" << endl;
+		for (int i = 0; i < n2; i++) {
+			a2[i] = new int[m2];
+			for (int j = 0; j < m2; j++) {
+				cin >> a2[i][j];
+			}
+		}
+		cout << endl;
+		if (m == n2)
+			multi_bin(a, a2, n, m, n2, m2);
+		else cout << "Невозможно выполнить умножение матриц" << endl;
+
+	}
 	else {
 		int n, m;
 		cout << "Введите количестно строк и столбцов \n";
